@@ -1,5 +1,5 @@
 [versions]
-agp = "8.7.3"
+agp = "8.11.2"
 android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "35"
@@ -9,15 +9,18 @@ androidx-core = "1.17.0"
 androidx-espresso = "3.6.1"
 androidx-lifecycle = "2.9.4"
 androidx-testExt = "1.2.1"
+room = "2.8.1"
+sqlite = "2.6.1"
 composeMultiplatform = "1.9.0"
 junit = "4.13.2"
-kotlin = "2.2.20"
-nav = "2.9.0-rc01"
+kotlin = "2.2.10"
+nav = "2.9.0"
 json = "1.9.0"
 koin = "4.1.1"
 ktor = "3.3.0"
 coil = "3.3.0"
 napier = "2.7.1"
+ksp = "2.2.10-2.0.2"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -31,14 +34,20 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 androidx-lifecycle-viewmodelCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 
+# Room
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+androidx-room-sqlite = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+
 # Jb
 jb-nav = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "nav" }
 jb-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "json" }
 
 # Koin
-koin-android = {module = "io.insert-koin:koin-android", version.ref = "koin"}
-koin-compose-viewmodel = {module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin"}
-koin-compose-viewmodel-nav = {module = "io.insert-koin:koin-compose-viewmodel-navigation", version.ref = "koin"}
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin"}
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin"}
+koin-compose-viewmodel-nav = { module = "io.insert-koin:koin-compose-viewmodel-navigation", version.ref = "koin"}
 
 # Ktor
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
@@ -61,3 +70,5 @@ composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMul
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinSerializer = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+room = { id = "androidx.room", version.ref = "room" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
