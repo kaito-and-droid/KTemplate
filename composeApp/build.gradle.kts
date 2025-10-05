@@ -59,6 +59,9 @@ kotlin {
             implementation(libs.coil.core)
             implementation(libs.coil.okhttp)
 
+            implementation(libs.datastore.core)
+            implementation(libs.datastore.pref)
+
             implementation(libs.napier)
         }
 
