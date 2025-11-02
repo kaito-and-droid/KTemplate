@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerializer)
+    alias(libs.plugins.composeHotReload)
 }
 
 kotlin {
@@ -48,6 +49,7 @@ kotlin {
 
             implementation(libs.jb.nav)
             implementation(libs.jb.json)
+            implementation(libs.jb.time)
 
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.koin.compose.viewmodel.nav)
