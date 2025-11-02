@@ -9,7 +9,8 @@ androidx-core = "1.17.0"
 androidx-espresso = "3.6.1"
 androidx-lifecycle = "2.9.4"
 androidx-testExt = "1.2.1"
-composeMultiplatform = "1.9.0"
+composeMultiplatform = "1.9.2"
+composeHotReload = "1.0.0-rc02"
 junit = "4.13.2"
 kotlin = "2.2.20"
 nav = "2.9.0"
@@ -18,6 +19,7 @@ koin = "4.1.1"
 ktor = "3.3.0"
 coil = "3.3.0"
 napier = "2.7.1"
+time = "0.7.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -34,6 +36,7 @@ androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle
 # Jb
 jb-nav = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "nav" }
 jb-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "json" }
+jb-time = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "time" }
 
 # Koin
 koin-android = {module = "io.insert-koin:koin-android", version.ref = "koin"}
@@ -61,3 +64,4 @@ composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMul
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinSerializer = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+composeHotReload = { id = "org.jetbrains.compose.hot-reload", version.ref = "composeHotReload" }

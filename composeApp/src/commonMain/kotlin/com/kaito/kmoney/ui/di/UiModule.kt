@@ -1,4 +1,4 @@
-package com.kaito.kmoney.ui
+package com.kaito.kmoney.ui.di
 
 import com.kaito.kmoney.ui.screen.splash.SplashViewModel
 import org.koin.core.module.dsl.viewModelOf
