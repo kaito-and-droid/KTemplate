@@ -19,7 +19,7 @@ koin = "4.1.1"
 ktor = "3.3.0"
 coil = "3.3.0"
 napier = "2.7.1"
-time = "0.7.1"
+time = "0.7.1-0.6.x-compat"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
