@@ -1,21 +1,19 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.kotlinSerializer)
-    alias(libs.plugins.composeHotReload)
+    alias(libs.plugins.kotlin.mp)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.compose.mp)
+    alias(libs.plugins.android.kmp.library)
+    alias(libs.plugins.kotlin.serializer)
 }
 
 kotlin {
-    androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
-        }
+    jvmToolchain(21)
+
+    androidLibrary {
+        namespace = "com.kaito.core"
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        androidResources.enable = true
     }
     
     listOf(
@@ -31,23 +29,22 @@ kotlin {
     
     sourceSets {
         androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
-
-            implementation(libs.koin.android)
+            api(libs.jb.compose.preview)
+            api(libs.androidx.activity.compose)
+            api(libs.koin.android)
             implementation(libs.ktor.okhttp)
         }
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
+            implementation(libs.jb.compose.rt)
+            implementation(libs.jb.compose.foundation)
+            implementation( libs.jb.compose.material3)
+            implementation(libs.jb.compose.ui)
+            implementation(libs.jb.compose.resource)
+            implementation(libs.jb.compose.preview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            implementation(libs.jb.nav)
+            implementation(libs.jb.nav3)
             implementation(libs.jb.json)
             implementation(libs.jb.time)
 
@@ -61,47 +58,11 @@ kotlin {
             implementation(libs.coil.core)
             implementation(libs.coil.okhttp)
 
-            implementation(libs.napier)
+            api(libs.napier)
         }
 
         iosMain.dependencies {
             implementation(libs.ktor.darwin)
         }
-
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
-        }
     }
 }
-
-android {
-    namespace = "com.kaito.kmoney"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-
-    defaultConfig {
-        applicationId = "com.kaito.kmoney"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-}
-
-dependencies {
-    debugImplementation(compose.uiTooling)
-}
-

@@ -1,5 +1,5 @@
 [versions]
-agp = "8.9.1"
+agp = "8.12.3"
 android-compileSdk = "36"
 android-minSdk = "24"
 android-targetSdk = "36"
@@ -9,17 +9,18 @@ androidx-core = "1.17.0"
 androidx-espresso = "3.6.1"
 androidx-lifecycle = "2.9.6"
 androidx-testExt = "1.2.1"
-composeMultiplatform = "1.9.3"
+composeMultiplatform = "1.10.0"
 composeHotReload = "1.0.0"
 junit = "4.13.2"
 kotlin = "2.3.0"
-nav = "2.9.1"
-json = "1.9.0"
+nav3 = "1.1.0-alpha01"
+json = "1.10.0"
 koin = "4.1.1"
-ktor = "3.3.3"
+ktor = "3.4.0"
 coil = "3.3.0"
 napier = "2.7.1"
 time = "0.7.1"
+material3 = "1.9.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -34,12 +35,19 @@ androidx-lifecycle-viewmodelCompose = { module = "org.jetbrains.androidx.lifecyc
 androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 
 # Jb
-jb-nav = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "nav" }
+jb-compose-rt = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "composeMultiplatform" }
+jb-compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "composeMultiplatform" }
+jb-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "composeMultiplatform" }
+jb-compose-resource = { module = "org.jetbrains.compose.components:components-resources", version.ref = "composeMultiplatform" }
+jb-compose-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "composeMultiplatform" }
+jb-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "material3" }
+
+jb-nav3 = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "nav3" }
 jb-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "json" }
 jb-time = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "time" }
 
 # Koin
-koin-android = {module = "io.insert-koin:koin-android", version.ref = "koin"}
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin"}
 koin-compose-viewmodel = {module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin"}
 koin-compose-viewmodel-nav = {module = "io.insert-koin:koin-compose-viewmodel-navigation", version.ref = "koin"}
 
@@ -58,10 +66,12 @@ coil-okhttp = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "c
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
-composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
-composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlinSerializer = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-composeHotReload = { id = "org.jetbrains.compose.hot-reload", version.ref = "composeHotReload" }
+compose-mp = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+kotlin-mp = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serializer = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+android-kmp-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
+android-app = { id = "com.android.application", version.ref = "agp" }
